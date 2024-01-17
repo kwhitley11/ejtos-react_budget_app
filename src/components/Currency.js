@@ -5,7 +5,7 @@ import './currency.css'
 
 const Currency = () => {
     const { dispatch, currency } = useContext(AppContext);
-    const [newCurrency, setNewCurrency] = useState(currency);
+    const [ newCurrency, setNewCurrency ] = useState(currency);
 
     const handleCurrencyChange = (event) => {
 
@@ -21,13 +21,13 @@ const Currency = () => {
 
     return (
         <div className='alert dropdown'>
-            <button className="dropbtn" onClick={handleCurrencyChange} value={newCurrency} type='button'>Currency {newCurrency ? `(${newCurrency})` : ''}</button>
-                <div className="dropdown-content">
-                    <button name='currency' type='button' value='$'>$ Dollar</button>
-                    <button name='currency' type='button' value='£'>£ Pound</button>
-                    <button name='currency' type='button' value='€'>€ Euro</button>
-                    <button name='currency' type='button' value='₹'>₹ Ruppee</button>
-                </div>
+            <label className="dropbtn" value={newCurrency}>Currency {newCurrency ? `(${newCurrency})` : ''}</label>
+                <select className="dropdown-content" onChange={handleCurrencyChange}>
+                    <option name='currency' value='$'>$ Dollar</option>
+                    <option name='currency' value='£'>£ Pound</option>
+                    <option name='currency' value='€'>€ Euro</option>
+                    <option name='currency' value='₹'>₹ Ruppee</option>
+                </select>
         </div>
     )
 }
